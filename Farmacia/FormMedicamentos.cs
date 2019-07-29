@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL.Farmacia;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace Farmacia
 {
     public partial class FormMedicamentos : Form
     {
+        MedicamentosBL _medicamentos;
+
         public FormMedicamentos()
         {
             InitializeComponent();
+
+            _medicamentos = new MedicamentosBL();
+
+            listaMedicamentosBindingSource.DataSource = _medicamentos.ObtenerMedicamentos();
         }
     }
 }
